@@ -5,7 +5,8 @@ const mongoose = require("mongoose");
 const graphQlSchema = require("./graphql/schema/index");
 const graphQlResolvers = require("./graphql/resolvers/index");
 const isAuth = require("./middleware/is-auth");
-
+const { url } = require("inspector");
+/* const Mongourl=`${process.env.DB}`; */
 const app = express();
 const http = require('http').createServer(app)
 
@@ -37,7 +38,7 @@ app.use(
 );
   mongoose
   .connect(
-    `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster1.dh8ly.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
+     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster1.dh8ly.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority` 
   )
   .then(() => {
     /* app.listen(8000); */
